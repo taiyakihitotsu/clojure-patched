@@ -32,7 +32,7 @@ SRC_URI="
 	https://github.com/clojure/core.specs.alpha/archive/v${CORE_SPECS_ALPHA_VER}.tar.gz
 		-> core.specs.alpha-${CORE_SPECS_ALPHA_VER}.tar.gz
 
-	https://github.com/taiyakihitotsu/ClojureFnPatch/archive/refs/heads/main.tar.gz
+	https://github.com/taiyakihitotsu/ClojureFnPatch/archive/refs/heads/v1.12.1.tar.gz
 		-> clojure-fn-patch.tar.gz
 
 	test? (

@@ -1,5 +1,5 @@
 # Copyright 1999-2024 Gentoo Authors
-# Distributed under the terms of the GNU General Public License v2
+# Distributed under the terms of the GNU General Publicn License v2
 
 EAPI=8
 
@@ -17,18 +17,22 @@ JAVA_PKG_IUSE="test"
 
 inherit java-pkg-2
 
+CLJ_RC=${PN}-$(ver_rs 3 '-')
+P=${CLJ_RC}
+
 DESCRIPTION="General-purpose programming language with an emphasis on functional programming"
 HOMEPAGE="https://clojure.org/
 	https://github.com/clojure/clojure/"
 SRC_URI="
-	https://github.com/${PN}/${PN}/archive/${P}.tar.gz
+	https://github.com/${PN}/${PN}/archive/${CLJ_RC}.tar.gz
+
 
 	https://github.com/clojure/spec.alpha/archive/v${SPEC_ALPHA_VER}.tar.gz
 		-> spec.alpha-${SPEC_ALPHA_VER}.tar.gz
 	https://github.com/clojure/core.specs.alpha/archive/v${CORE_SPECS_ALPHA_VER}.tar.gz
 		-> core.specs.alpha-${CORE_SPECS_ALPHA_VER}.tar.gz
 
-	https://github.com/taiyakihitotsu/ClojureFnPatch/archive/refs/heads/v1.12.1.tar.gz
+	https://github.com/taiyakihitotsu/ClojureFnPatch/archive/refs/tags/v1.12.1.tar.gz
 		-> clojure-fn-patch.tar.gz
 
 	test? (
@@ -65,7 +69,7 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}/add-compile-spec-ant-build-target.patch"
-	"${WORKDIR}/ClojureFnPatch-main/defnfix-patch-proto.patch"
+	"${WORKDIR}/ClojureFnPatch-${PV}/defnfix-patch-proto.patch"
 )
 
 DOCS=( changes.md CONTRIBUTING.md readme.txt )
